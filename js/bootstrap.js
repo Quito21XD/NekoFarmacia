@@ -43,7 +43,6 @@
 
     return obj;
   }
-
   function _objectSpread(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i] != null ? arguments[i] : {};
@@ -367,6 +366,7 @@
 
       return Alert;
     }();
+ 
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
