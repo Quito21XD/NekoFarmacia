@@ -2,7 +2,7 @@
   include "../conexion.php";
   if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0)) {
+    if (empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0 || empty($_POST['info']))) {
       $alert = '<div class="alert alert-danger" role="alert">
                 Todo los campos son obligatorios
               </div>';
@@ -10,10 +10,11 @@
       $proveedor = $_POST['proveedor'];
       $producto = $_POST['producto'];
       $precio = $_POST['precio'];
+      $info = $_POST['info'];
       $cantidad = $_POST['cantidad'];
       $usuario_id = $_SESSION['idUser'];
 
-      $query_insert = mysqli_query($conexion, "INSERT INTO producto(proveedor,descripcion,precio,existencia,usuario_id) values ('$proveedor', '$producto', '$precio', '$cantidad','$usuario_id')");
+      $query_insert = mysqli_query($conexion, "INSERT INTO producto(proveedor,descripcion,precio,existencia,info,usuario_id) values ('$proveedor', '$producto', '$precio', '$cantidad','$info','$usuario_id')");
       if ($query_insert) {
         $alert = '<div class="alert alert-primary" role="alert">
                 Producto Registrado
@@ -70,10 +71,19 @@
            <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio">
          </div>
          <div class="form-group">
+           <label for="info">Detalles</label>
+           <input type="text" placeholder="Ingrese Informacion del producto" name="info" id="info" class="form-control">
+         </div>
+         <div class="form-group">
            <label for="cantidad">Cantidad</label>
            <input type="number" placeholder="Ingrese cantidad" class="form-control" name="cantidad" id="cantidad">
          </div>
          <input type="submit" value="Guardar Producto" class="btn btn-primary">
+         <h2>Selecciona una imagen para subir al servidor</h2>
+              <form action="guardar_imagen.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="imagen" id="imagen">
+        <input type="submit" value="Subir imagen">
+    </form>
        </form>
      </div>
    </div>

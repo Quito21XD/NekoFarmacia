@@ -36,7 +36,7 @@ body {
 /* Estilos por defecto para el elemento "p" */
 p {
   font-family: Times New Roman, Times, serif;
-  font-size: 16px;
+  font-size: 11px;
   line-height: 1.2;
   text-align: justify;
   margin-top: 1em;
@@ -64,8 +64,8 @@ p {
 }
 /* Ajustamos el tamaño de fuente para la descripción */
 .p-product {
-  font-family: Times New Roman, Times, serif;
-  font-size: 5px;
+  font-family: "poppins", sans-serif;
+  font-size: 20px;
   line-height: 1.2;
   text-align: center;
   margin-top: 1em;

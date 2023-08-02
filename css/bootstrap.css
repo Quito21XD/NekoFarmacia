@@ -4550,6 +4550,8 @@ input[type="button"].btn-block {
 }
 
 .card {
+  height: 420px;
+  width: 270px;
   position: relative;
   display: -ms-flexbox;
   display: flex;
@@ -4579,6 +4581,7 @@ input[type="button"].btn-block {
 }
 
 .card-body {
+  height: 190px;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;

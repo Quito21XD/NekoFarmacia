@@ -30,22 +30,22 @@ Table of contents
 
 /* Typography */
 body, ul, li, p, a, label, input, div {
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px !important;
+  font-family: 'poppins', sans-serif;
+  font-size: 15px !important;
   font-weight: 300 !important;
 }
 .h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'poppins', sans-serif;
   font-size: 48px !important;
   font-weight: 200 !important;
 }
 .h2 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'poppins', sans-serif;
   font-size: 30px !important;
   font-weight: 300;
 }
 .h3 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'poppins', sans-serif;
   font-size: 22px !important;
 }
 /* General */
@@ -159,9 +159,6 @@ body, ul, li, p, a, label, input, div {
 // No media query since this is the default in Bootstrap
 */
 /* Small devices (landscape phones, 576px and up)*/
-.product-wap .h3, .product-wap li, .product-wap i, .product-wap p {
-  font-size: 12px !important;
-}
 .product-wap .product-color-dot {
   width: 6px;
   height: 6px;
@@ -180,7 +177,6 @@ body, ul, li, p, a, label, input, div {
 @media (min-width: 992px) {
   #templatemo_main_nav .navbar-nav {max-width: 550px;}
   #template-mo-zay-hero-carousel .carousel-item {min-height: 30rem !important;}
-  .product-wap .h3, .product-wap li, .product-wap i, .product-wap p {font-size: 18px !important;}
   .product-wap .product-color-dot {
     width: 12px;
     height: 12px;

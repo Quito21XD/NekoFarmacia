@@ -6,16 +6,24 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Mobile Metas -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-
   <title>Neko Farm</title>
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <style>
+    @font-face {
+      font-family: 'RobotoMono';
+      src: url('/fonts/RobotoMono/static/RobotoMono-Light.ttf') format('truetype');
+      /* Agrega otros formatos si tienes más archivos de la fuente */
+    }
+  </style>
+
   <link rel="stylesheet" href="assets/css/templatemo.css">
   <link rel="stylesheet" href="assets/css/custom.css">
+
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
@@ -65,7 +73,7 @@
                   <a class="nav-link" href="about.html"> Acerca de </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="product.html"> Productos </a>
+                  <a class="nav-link" href="product.php"> Productos </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="login.php">Iniciar Sesion</a>
@@ -142,7 +150,7 @@
                             <img class="card-img rounded-0 img-fluid" src="images/pr1.jpg">
                             <div class="description-overlay">Descripción de la Imagen 1</div>
                             <div class="card-body">
-                                <p class="p-product">Bayer Antialérgico Vetriderm Para Propietarios De Mascotas</p>
+                                <p class="p-product">Kit Feliway Optimum Difusor Y Recambio Para Gatos</p>
                                 <p class="p-product">$50.00</p>
                             </div>
                         </div>

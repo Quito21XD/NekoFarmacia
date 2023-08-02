@@ -3,7 +3,7 @@ include_once "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
-  if (empty($_POST['producto']) || empty($_POST['precio'])) {
+  if (empty($_POST['producto']) || empty($_POST['precio']) || empty($_POST['info'])) {
     $alert = '<div class="alert alert-primary" role="alert">
               Todo los campos son requeridos
             </div>';
@@ -12,7 +12,8 @@ if (!empty($_POST)) {
     $proveedor = $_POST['proveedor'];
     $producto = $_POST['producto'];
     $precio = $_POST['precio'];
-    $query_update = mysqli_query($conexion, "UPDATE producto SET descripcion = '$producto', proveedor= $proveedor,precio= $precio WHERE codproducto = $codproducto");
+    $info = $_POST['info'];
+    $query_update = mysqli_query($conexion, "UPDATE producto SET descripcion = '$producto', proveedor= $proveedor,precio= $precio,info = '$info' WHERE codproducto = $codproducto");
     if ($query_update) {
       $alert = '<div class="alert alert-primary" role="alert">
               Modificado
@@ -34,7 +35,7 @@ if (empty($_REQUEST['id'])) {
   if (!is_numeric($id_producto)) {
     header("Location: lista_productos.php");
   }
-  $query_producto = mysqli_query($conexion, "SELECT p.codproducto, p.descripcion, p.precio, pr.codproveedor, pr.proveedor FROM producto p INNER JOIN proveedor pr ON p.proveedor = pr.codproveedor WHERE p.codproducto = $id_producto");
+  $query_producto = mysqli_query($conexion, "SELECT p.codproducto, p.descripcion, p.precio, p.info, pr.codproveedor, pr.proveedor FROM producto p INNER JOIN proveedor pr ON p.proveedor = pr.codproveedor WHERE p.codproducto = $id_producto");
   $result_producto = mysqli_num_rows($query_producto);
 
   if ($result_producto > 0) {
@@ -79,13 +80,20 @@ if (empty($_REQUEST['id'])) {
             <div class="form-group">
               <label for="producto">Producto</label>
               <input type="text" class="form-control" placeholder="Ingrese nombre del producto" name="producto" id="producto" value="<?php echo $data_producto['descripcion']; ?>">
-
             </div>
             <div class="form-group">
               <label for="precio">Precio</label>
               <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio" value="<?php echo $data_producto['precio']; ?>">
-
             </div>
+            <div class="form-group">
+              <label for="info">Detalles</label>
+              <input type="text" class="form-control" placeholder="Ingrese informacion del producto" name="info" id="info" value="<?php echo $data_producto['info']; ?>">
+            </div>
+            <h2>Selecciona una imagen para subir al servidor</h2>
+            <form action="guardar_imagen.php" method="post" enctype="multipart/form-data">
+             <input type="file" name="imagen" id="imagen">
+           <input type="submit" value="Subir imagen">
+              </form>
             <input type="submit" value="Actualizar Producto" class="btn btn-outline-primary">
             <a href="lista_productos.php" class="btn btn-outline-danger">Regresar</a>
           </form>
