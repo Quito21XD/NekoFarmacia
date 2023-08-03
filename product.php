@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -145,97 +144,31 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                <tbody>
+                  <?php
+                    include "conexion.php";                                                               
+                    $query = mysqli_query($conexion, "SELECT * FROM producto");
+                    $result = mysqli_num_rows($query);
+                    if ($result > 0) {
+                      while ($data = mysqli_fetch_assoc($query)) {
+                  ?>
+                      <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="images/pr1.jpg">
-                            <div class="description-overlay">Descripción de la Imagen 1</div>
-                            <div class="card-body">
-                                <p class="p-product">Kit Feliway Optimum Difusor Y Recambio Para Gatos</p>
-                                <p class="p-product">$50.00</p>
-                            </div>
+                          <!-- Usamos la URL de la imagen desde la base de datos -->
+                          <img class="card-img rounded-0 img-fluid" src="<?php echo $data['url_imagen']; ?>">
+                          <div class="description-overlay"><p class="p-product"><?php echo $data['info']; ?></p></div>
+                          <div class="card-body">
+                            <p class="p-product"><?php echo $data['descripcion']; ?></p>
+                            <p class="p-product"><?php echo $data['precio']."$"; ?></p>
+                          </div>
                         </div>
-                    </div>                
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">                   
-                            <img class="card-img rounded-0 img-fluid" src="images/pr2.jpg">
-                            <div class="description-overlay">Descripción de la Imagen 1</div>
-                            <div class="card-body">
-                                <p class="p-product">Bayer Antialérgico Vetriderm Para Propietarios De Mascotas</p>
-                                <p class="p-product">$50.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="images/pr3.jpg">
-                            <div class="description-overlay">Descripción de la Imagen 1</div>
-                            <div class="card-body">
-                                <p class="p-product">Probióticos Pro Plan Fortiflora Para Gatos</p>
-                                <p class="p-product">$50.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="images/pr4.jpg">
-                            <div class="description-overlay">Descripción de la Imagen 1</div>
-                            <div class="card-body">
-                                <p class="p-product">Bayer Antialérgico Vetriderm Para Propietarios De Mascotas</p>
-                                <p class="p-product">$50.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="images/pr5.jpg">
-                            <div class="description-overlay">Descripción de la Imagen 1</div>
-                            <div class="card-body">
-                                <p class="p-product">Bayer Antialérgico Vetriderm Para Propietarios De Mascotas</p>
-                                <p class="p-product">$50.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="images/pr6.jpg">
-                            <div class="description-overlay">Descripción de la Imagen 1</div>
-                            <div class="card-body">
-                                <p class="p-product">Bayer Antialérgico Vetriderm Para Propietarios De Mascotas</p>
-                                <p class="p-product">$50.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="images/pr7.jpg">
-                            <div class="description-overlay">Descripción de la Imagen 1</div>
-                            <div class="card-body">
-                                <p class="p-product">Bayer Antialérgico Vetriderm Para Propietarios De Mascotas</p>
-                                <p class="p-product">$50.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="images/pr8.jpg">
-                            <div class="description-overlay">Descripción de la Imagen 1</div>
-                            <div class="card-body">
-                                <p class="p-product">Bayer Antialérgico Vetriderm Para Propietarios De Mascotas</p>
-                                <p class="p-product">$50.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="images/pr9.jpg">
-                            <div class="description-overlay">Descripción de la Imagen 1</div>
-                            <div class="card-body">
-                                <p class="p-product">Bayer Antialérgico Vetriderm Para Propietarios De Mascotas</p>
-                                <p class="p-product">$50.00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                      </div>   
+                  <?php
+                      }
+                    }
+                  ?>
+                </tbody>
+
                 <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">
                         <li class="page-item disabled">
@@ -249,8 +182,8 @@
                         </li>
                     </ul>
                 </div>
+              </div>
             </div>
-
         </div>
     </div>
     <!-- End Content -->

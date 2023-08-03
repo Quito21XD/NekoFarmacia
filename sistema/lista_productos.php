@@ -11,6 +11,7 @@
 							<tr>
 								<th>ID</th>
 								<th>PRODUCTO</th>
+								<th>IMAGEN</th>
 								<th>PRECIO</th>
 								<th>STOCK</th>
 								<?php if ($_SESSION['rol'] == 1) { ?>
@@ -29,6 +30,7 @@
 									<tr>
 										<td><?php echo $data['codproducto']; ?></td>
 										<td><?php echo $data['descripcion']; ?></td>
+										<td><img id="img-lis" src="<?php echo "../".$data['url_imagen']; ?>"></td>
 										<td><?php echo $data['precio']; ?></td>
 										<td><?php echo $data['existencia']; ?></td>
 										<?php if ($_SESSION['rol'] == 1) { ?>
