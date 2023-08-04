@@ -585,3 +585,13 @@ function delProduct() {
   });
 
 }
+//--------------------------------------------------
+//reportes 
+function mostrarOcultarBotones() {
+  var botonesSecundarios = document.getElementById("botonesSecundarios");
+  if (botonesSecundarios.style.display === "none") {
+      botonesSecundarios.style.display = "block";
+  } else {
+      botonesSecundarios.style.display = "none";
+  }
+}

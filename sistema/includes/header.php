@@ -44,6 +44,16 @@ if ($result_data > 0) {
 	<title>
 		Sistema de Venta
 	</title>
+	<style>
+        /* Estilos para ocultar el submenú por defecto */
+        ul.submenu {
+            display: none;
+        }
+		/* Estilos para ocultar el círculo negro en los enlaces de la lista */
+	ul, li {
+    	list-style-type: none;
+	}
+    </style>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 	<!-- CSS Files -->
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -107,18 +117,29 @@ if ($result_data > 0) {
 					</li>
 					<?php } ?>
 					<?php if ($_SESSION['rol'] == 1) { ?>
-					<li><a href='#'> <i class="now-ui-icons design_bullet-list-67"></i><p>Reportes</p></a>
-      				<ul>
-					  	<li><a href='reporte_usuario.php'><span>Usuario</span></a>
-         				</li>
-         				<li><a href="reporte_proveedor.php"><span>Proveedor</span></a>
-         				</li>
-         				<li><a href='reporte_cliente.php'><span>Cliente</span></a>
-         				</li>
-         				<li><a href='reporte_producto.php'><span>Producto</span></a>
-         				</li>
-      				</ul>
-      				</li>
+						<li>
+        <a href='#' onclick="toggleSubMenu()">
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            <p>Reportes</p>
+        </a>
+        <ul class="submenu">
+            <li class="sub-link"><a href='reporte_usuario.php'><span>Usuario</span></a></li>
+            <li class="sub-link"><a href="reporte_proveedor.php"><span>Proveedor</span></a></li>
+            <li class="sub-link"><a href='reporte_cliente.php'><span>Cliente</span></a></li>
+            <li class="sub-link"><a href='reporte_producto.php'><span>Producto</span></a></li>
+        </ul>
+    </li>
+
+    <script>
+        function toggleSubMenu() {
+            var submenu = document.querySelector('.submenu');
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        }
+    </script>
 					<?php } ?>
 					<?php if ($_SESSION['rol'] == 1) { ?>
 					<li>
